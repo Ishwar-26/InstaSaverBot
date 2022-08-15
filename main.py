@@ -1,6 +1,5 @@
 import telebot
 import instaloader
-import json
 
 ig = instaloader.Instaloader()
 

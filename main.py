@@ -20,7 +20,11 @@ bot = telebot.TeleBot('5512222550:AAGZ-r6ysZQMcHwG49AfdjuH1a9XRvZ2mow')
 @bot.message_handler(commands=['start'],content_types=['text'])
 def start(message):
     user = bot.send_message(message.chat.id,"<strong>Hello User !! </strong>\n\nThis is bot is created for download all your saved posts from instagram !!\n\nIf you want to start using this bot you can use /welcome command.\n\nIf you need help you can use /help command.",parse_mode="HTML")
-    bot.register_next_step_handler(user, welcome)
+    if(user == '/welcome'):
+        bot.register_next_step_handler(user, welcome)
+    else:
+        bot.send_message(message.chat.id,"Sorry, I don't understand !! please use /welcome command!!")
+
     
 
 @bot.message_handler(commands=['welcome'],content_types=['text'])
